@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no">
+    <title>Metropolis Roleplay</title>
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="icon" href="img/favicon.png"; style="transform: scale(1.4);" type="image/x-icon">
+    <style>
+      @keyframes animate-circle {
+      	from {
+      		transform: scale(0);
+      		opacity: 1;
+      	}
+      	to {
+      		transform: scale(1);
+      		opacity: 0;
+      	}
+      }
+      #preloader{
+      	width: 100%;
+      	height: 100%;
+      	position: fixed;
+      	top: 0;
+      	left: 0;
+      	z-index: 999;
+      	background: #1C1C1C;
+      	background: linear-gradient(to right, rgba(36, 31, 31, 1) 0%, rgba(36, 31, 31, 1) 32%, rgba(74, 71, 70, 1) 100%);
+      }
+      .loader {
+      	position: fixed;
+      	top: 50%;
+      	left: 50%;
+      	height: 500px;
+      	width: 500px;
+      	transform: translateX(-50%) translateY(-50%);
+      }
+      .loader > .circle {
+      	position: absolute;
+      	height: inherit;
+      	width: inherit;
+      	background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1003137458277470328/Logo_noglow.png);
+        background-size: contain;
+      	border-radius: 0;
+      	animation: animate-circle 2s cubic-bezier(.9, .24, .62, .79) infinite;
+      }
+      .loader > .circle:nth-of-type(1) {
+      	animation-delay: 0s;
+      }
+      .loader > .circle:nth-of-type(2) {
+      	animation-delay: calc(2s / -0);
+      }
+      .loader > .circle:nth-of-type(3) {
+      	animation-delay: calc(2s / -6);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="loader">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
+    </div>
+    <main class="main main--home" style="opacity:0">
+      <canvas class="noise" id="noise"></canvas>
+      <div class="header">
+        <div class="header__left">
+          <div class="header__letter" href="https://metropolisrp.it" data-link="0"></div>
+          <div class="header__socials"></div>
+      </div>
+        <div class="header__right">
+          <ul class="header__menu">
+            <li class="active"><a class="js-scroll-link" href="javascript:;" data-link="0">HOME</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="1">Changelog</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="2">Team</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="3">negozio</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="4">attività</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="5">regolamento</a></li>
+            <li><a class="js-scroll-link" href="javascript:;" data-link="6">LINKS</a></li>
+          </ul>
+          <div class="header__phone"><a href="https://discord.metropolisrp.it" target="_blank">ENTRA SUBITO NEL SERVER</a></div>
+        </div>
+      </div>
+      <div class="scroll">
+        <div class="home-page">
+          <div class="page-title show">
+            <ul>
+              <li>
+                <div class="title">metropolis roleplay</div>
+                <div class="number">1.0</div>
+              </li>
+              <li>
+                <div class="title">Changelogs</div>
+                <div class="number">2.0</div>
+              </li>
+              <li>
+                <div class="title">Team</div>
+                <div class="number">3.0</div>
+              </li>
+              <li>
+                <div class="title">negozio</div>
+                <div class="number">4.0</div>
+              </li>
+              <li>
+                <div class="title">attività</div>
+                <div class="number">5.0</div>
+              </li>
+              <li>
+                <div class="title">regolamento</div>
+                <div class="number">5.0</div>
+              </li>
+              <li>
+                <div class="title">links</div>
+                <div class="number">6.0</div>
+              </li>
+            </ul>
+            <canvas class="noise noise--inner" id="noise_menu"></canvas>
+          </div>
+          <div class="scrollable">
+            <section class="home">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div></div>
+                    <div>1.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693825240121425/homebg.png); background-size: auto 110%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="filter: drop-shadow(2px 2px 2px #fff)">entra in un</div>                    
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">mondo</div>
+                    <div class="h1" style="filter: drop-shadow(2px 2px 2px #fff)">di</div>
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">tecnologia</div>
+                  </div>
+                  <div class="content__description">
+                    <div class="small"></div>
+                  </div>
+                  <div class="content__btn-block">
+                    <div class="content__btn-label small"></div>
+                    <a class="content__btn-btn btn js-scroll-link" href="#hireme" data-link="5">Regolamento</a>
+                    </div>
+                    <div class="home__numbers">
+                      <div class="home__number">
+                        <div class="home__number-digital" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463);" data-number="700">700</div>
+                        <div class="home__number-text small">Utenti</div>
+                      </div>
+                      <div class="home__number">
+                        <div class="home__number-digital" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463);" data-number="67">50</div>
+                        <div class="home__number-text small">Mappe<br> uniche</div>
+                      </div>
+                      <div class="home__number">
+                        <div class="home__number-digital" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463);" data-number="17">3</div>
+                        <div class="home__number-text small">Anni di <br>esperienza<br> collettiva</div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="content__right">
+                  <div class="home__circles">
+                    <div class="home__circles-lines"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="projects">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>changelogs</div>
+                    <div>2.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693827001724989/clbg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">Changelogs</div>
+                  </div>
+                  <ul class="content__menu projects__menu">
+                    <li class="active-changelogs"><a href="javascript:;">Versione 2.0.1 - 26/03/2022</a></li>
+                    <li class="active-changelogs"><a href="javascript:;">Versione 2.0.2 - 31/03/2022</a></li>
+                    <li class="active-changelogs"><a href="javascript:;">Versione 2.0.3 - 13/04/2022</a></li>
+                    <li class="active-changelogs"><a href="javascript:;">Versione 2.0.4 - 30/04/2022</a></li>
+                    <!-- <li><a href="javascript:;">gilber - personal website</a></li>
+                    <li><a href="javascript:;">jonny - personal website</a></li> -->
+                  </ul>
+                  <div class="content__btn-block">
+                    <div class="content__btn-label small">Storico changelogs</div><a class="content__btn-btn btn btn--arrow" href="https://discord.gg/PMfjYVtK9c" target="_blank" rel="nofollow">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div>
+                </div>
+                <div class="content__right">
+                  <div class="projects__blocks">
+                    <div class="projects__block active">
+                      <span class="titolo-changelog">Versione 2.0.1 - 26/03/2022</span><br><br>
+                      <span class="changelog">01 |</span><br>
+                      - Fixato il cyber benny's <br>
+                      <span class="changelog">02 |</span><br>
+                      - Rimosso lo stress <br>
+                      <span class="changelog">03 |</span><br>
+                      - Aggiunte nuove auto (ribelli - Cittadini) <br>
+                      <span class="changelog">04 |</span><br>
+                      - Fixata whitelist <br>
+                      <span class="changelog">05 |</span><br>
+                      - Fixata la perdita degli oggetti dopo il respawn in ospedale <br>
+                      <span class="changelog">06 |</span><br>
+                      - Aggiunti banner e informazioni durante il caricamento da FiveM <br>
+                      <span class="changelog">07 |</span><br>
+                      - Sostituita la concessionaria <br>
+                      <span class="changelog">08 |</span><br>
+                      - Aggiornata chat [comandi ed estetica rinnovati] <br>
+                      <span class="changelog">09 |</span><br>
+                      - Tradotto il job "Trauma Team" <br>
+                      <span class="changelog">10 |</span><br>
+                      - Aggiunti "Scanner medico" e "Adrenalina" nel deposito del Trauma Team <br>
+                      <span class="changelog">11 |</span><br>
+                      - Fixati blips aggiuntivi all'Armeria Nord <br>
+                      <span class="changelog">12 |</span><br>
+                      - Sostituita l'HUD base con una nuova HUD in stile Cyberpunk <br>
+                      <span class="changelog">13 |</span><br>
+                      - Aggiunta possibilità di modificare l'associazione dei tasti su alcune funzioni del nuovo HUD <br>
+                      <span class="changelog">14 |</span><br>
+                      - Aggiunte nuove armi nelle Armerie sia Nord che City <br>
+                      <span class="changelog">15 |</span><br>
+                      - Adeguata economia lavori e concessionario <br>
+                      <span class="changelog">16 |</span><br>
+                      - Fixate icone items <br>
+                      <span class="changelog">17 |</span><br>
+                      - Traduzioni varie <br>
+                      <span class="changelog">18 |</span><br>
+                      - Aggiornata estetica sistema notifche server generale <br>
+                      <span class="changelog">19 |</span><br>
+                      - Messo ID a vista (ora non serve più il comando /id) <br>
+                      <span class="changelog">20 |</span><br>
+                      - Fix vari <br>
+                    </div>
+                    <div class="projects__block active">
+                      <span class="titolo-changelog">Versione 2.0.2 - 31/03/2022</span><br><br>
+                      <span class="changelog">01 |</span><br>
+                      - Fixato il cyber benny's <br>
+                      <span class="changelog">02 |</span><br>
+                      - /chat attiva e disattiva la chat. 
+                      > [Nelle impostazioni puoi settare il comando per renderla nascosta, sempre attiva o attiva solo al momento della ricezione di un nuovo messaggio] <br>
+                      <span class="changelog">03 |</span><br>
+                      - /azione ti permette di scrivere nella chat apposita per le azioni <br>
+                      <span class="changelog">04 |</span><br>
+                      - Aggiunto deposito UniPunk per i dipendenti <br>
+                      <span class="changelog">05 |</span><br>
+                      - Risolti bug legati al job della pesca <br>
+                      <span class="changelog">06 |</span><br>
+                      - Risolti bug legati al job caccia e rimosso il blip "Rivale" <br>
+                      <span class="changelog">07 |</span><br>
+                      - Aggiunte divise della TH Police nello spogliatoio in Centrale <br>
+                      <span class="changelog">08 |</span><br>
+                      - Aggiornato loot derivato dalla ricerca nei cestini situati in tutta la mappa <br>
+                      <span class="changelog">09 |</span><br>
+                      - Aggiunto ID personale a vista nell'HUD <br>
+                      <span class="changelog">10 |</span><br>
+                      - Aggiunta auto aziendale per il CyberBenny's <br>
+                      <span class="changelog">11 |</span><br>
+                      - Aggiunto ambulanza blindata di servizio per il Trauma Team   <br>
+                      <span class="changelog">12 |</span><br>
+                      - Aggiunta l'interfaccia grafica [GUI] per rilasciare le fatture <br>
+                      <span class="changelog">13 |</span><br>
+                      - Aggiunto deposito condiviso per la TH Police in Centrale <br>
+                      <span class="changelog">14 |</span><br>
+                      - Sistemata e aggiornata la chat dedicata allo staff <br>
+                      <span class="changelog">15 |</span><br>
+                      - Sistemate e aggiornate le chat di gioco [OOC, PM, Azione, Jobs, ADs, Annunci staff] <br>
+                      <span class="changelog">16 |</span><br>
+                      - Sistemato Radialmenù [F1] per la modifica dei vestiti sia M che F <br>
+                      <span class="changelog">17 |</span><br>
+                      - Traduzioni varie <br>
+                      <span class="changelog">18 |</span><br>
+                      - Fix vari <br>
+                    </div>
+                    <div class="projects__block active">
+                      <span class="titolo-changelog">Versione 2.0.3 - 13/04/2022</span><br><br>
+                      <span class="changelog">01 |</span><br>
+                      - Fixato bug deposito veicoli garage  <br>
+                      <span class="changelog">02 |</span><br>
+                      - Aggiunto sistema fazioni <br>
+                      <span class="changelog">03 |</span><br>
+                      - Aggiunta animazione inventario <br>
+                      <span class="changelog">04 |</span><br>
+                      - Modificata estetica inventario <br>
+                      <span class="changelog">05 |</span><br>
+                      - Fixato vendita concessionari Nord e Metropolis City <br>
+                      <span class="changelog">06 |</span><br>
+                      - Modificate estetiche varie dei menù <br>
+                      <span class="changelog">07 |</span><br>
+                      - Aggiunto garage Cyber Benny's <br>
+                      <span class="changelog">08 |</span><br>
+                      - Abbassato il guadagno tramite crypto <br>
+                      <span class="changelog">09 |</span><br>
+                      - Fixata cintura - Vieni sbalzato fuori dall'auto (con cintura allacciata) solo sopra i 300 km/h <br>
+                      <span class="changelog">10 |</span><br>
+                      - Diminuito il danno ai veicoli <br>
+                      <span class="changelog">11 |</span><br>
+                      - Creata fazione Yellowpunk <br>
+                      <span class="changelog">12 |</span><br>
+                      - Fixato guardaroba fazioni <br>
+                      <span class="changelog">13 |</span><br>
+                      - Sostituita la risorsa gestore degli spawn <br>
+                      <span class="changelog">14 |</span><br>
+                      - Sostituita la risorsa gestore del multicharacter <br>
+                      <span class="changelog">15 |</span><br>
+                      - Ottimizzate tutte le risorse <br>
+                      <span class="changelog">16 |</span><br>
+                      - Aggiunti punti droga, droghe craftabili e sistema criminale <br>
+                      <span class="changelog">17 |</span><br>
+                      - Abbassato prezzo della benzina <br>
+                      <span class="changelog">18 |</span><br>
+                      - Resi i benzinai visibili in tutta la mappa <br>
+                      <span class="changelog">19 |</span><br>
+                      - Aggiunto multijob <br>
+                      <span class="changelog">21 |</span><br>
+                      - Aggiunto lavoro medico al Nord <br>
+                      <span class="changelog">22 |</span><br>
+                      - Aggiunto lavoro R.I.M. al Nord <br>
+                      <span class="changelog">23 |</span><br>
+                      - Cambiata estetica spawn e multicharacter <br>
+                      <span class="changelog">24 |</span><br>
+                      - Aggiunto sistema avanzato cibo > animazioni e possibilità di appoggiare, passare e sorseggiare cibi e bevande <br>
+                      <span class="changelog">25 |</span><br>
+                      - Rimossa la risorsa gestore della possibilità di strisciare <br>
+                      <span class="changelog">26 |</span><br>
+                      - Aggiunto osservatorio in mappa <br>
+                      <span class="changelog">27 |</span><br>
+                      - Fixati i kit di riparazione <br>
+                      <span class="changelog">28 |</span><br>
+                      - Fix vari all'economia <br>
+                      <span class="changelog">29 |</span><br>
+                      - Aggiunto nuovo sistema bancario <br>
+                      <span class="changelog">10 |</span><br>
+                      - Fix vari <br>
+                      <span class="changelog">31 |</span><br>
+                      - Traduzioni varie <br>
+                    </div>
+                    <div class="projects__block active">
+                      <span class="titolo-changelog">Versione 2.0.4 - 30/04/2022</span><br><br>
+                      <span class="changelog">01 |</span><br>
+                      - Aggiornati logo, banner e showcase inerenti a FiveM  <br>
+                      <span class="changelog">02 |</span><br>
+                      - Aggiornati logo, banner e invito lato Discord <br>
+                      <span class="changelog">03 |</span><br>
+                      - Aggiornato il loading screen del server <br>
+                      <span class="changelog">04 |</span><br>
+                      - Fixati vari bug inerenti al sistema allowlistt <br>
+                      <span class="changelog">05 |</span><br>
+                      - Aggiornata e fixata la risorsa 'Metropolis-Hunting' <br>
+                      <span class="changelog">06 |</span><br>
+                      - Fixati vari bug riguardanti il sistema animazioni delle risorse in game <br>
+                      <span class="changelog">07 |</span><br>
+                      - Aggiunto lavoro 'Toxic Waste'. Integrato nel menù del Municipio. <br>
+                      <span class="changelog">08 |</span><br>
+                      - Rimosso lavoro 'Netturbino' <br>
+                      <span class="changelog">09 |</span><br>
+                      - Aggiunta possibilità di rapinare i market <br>
+                      <span class="changelog">10 |</span><br>
+                      - Fixato bug riguardante la categoria decalcomanie <br>
+                      <span class="changelog">11 |</span><br>
+                      - Rimossa la funzione di scortare un player tramite l'occhio. La funzione è stata integrata nel Radial Menù [F1] <br>
+                      <span class="changelog">12 |</span><br>
+                      - Modificato tasto per chiudere/aprire l'auto. La funzione è stata trasferita sul tasto 'N' <br>
+                      <span class="changelog">13 |</span><br>
+                      - Rimossa categorie 'Extra Veicoli' dal Radial Menù <br>
+                      <span class="changelog">14 |</span><br>
+                      - Fixati vari bug riguardanti i negozietti <br>
+                      <span class="changelog">15 |</span><br>
+                      - Sostituita la risorsa gestore del Customs. Aggiornate le opzioni di customizzazione già esistenti e aggiunte nuove opzioni <br>
+                      <span class="changelog">16 |</span><br>
+                      - Ottimizzate tutte le risorse <br>
+                      <span class="changelog">17 |</span><br>
+                      - Fixate le armerie <br>
+                      <span class="changelog">18 |</span><br>
+                      - Fix vari all'economia <br>
+                      <span class="changelog">19 |</span><br>
+                      - Fix vari <br>
+                    </div>
+                    <!-- <div class="projects__block active">
+
+                    </div>
+                    <div class="projects__block active">
+            
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="awards">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>team</div>
+                    <div>3.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693826330640424/teambg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="color: #02ffdd; filter: drop-shadow(2px 2px 3px #02ffdd); animation: flicker-azzurro 1.5s infinite alternate;">Il team di</div>
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">metropolis</div>
+                  </div>
+                  <div class="content__description">
+                    <div class="small"></div>
+                  </div>
+                </div>
+                <div class="content__right">
+                  <div class="content__awards awards__list">
+                    <div class="content__award">
+                      <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #cccccc);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691384926941284/mezzo.png" alt=""></div>
+                      <div class="content__award-title">
+                        <p class="staff">MezzoSangue          (24)</p>
+                      </div>
+                      <div class="content__award-text small">Primo <span>fondatore</span>, <span>ideatore</span> e <span>mapper</span> professionale di Metropolis.</div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #2cb9ff);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691386688557178/147df5df654055bb314b3e6d4d937675.png" alt=""></div>
+                      <div class="content__award-title">
+                        <p class="staff">SeriumTW                      (22)</p>
+                      </div>
+                      <div class="content__award-text small"><span>Co Fondatore</span>, full-Stack <span>developer</span> e pricipale sviluppatore del server.</div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #000000);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691384528478320/yunior.png" alt=""></div>
+                      <div class="content__award-title">
+                        <p class="staff">yunior706                    (19)</p>
+                      </div>
+                      <div class="content__award-text small"><span>Grafico</span> e <span>gestore</span> dei <span>social</span> di Metropolis.</div>
+                  </div>
+                    <div class="content__award">
+                      <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #7c0f6e);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691386256523384/Logotipo_TW.png" alt=""></div>
+                      <div class="content__award-title">
+                        <p class="staff">andrea tilaro     (31)</p>
+                      </div>
+                      <div class="content__award-text small"><span>Gestore server</span>, <span>responsabile</span> del comparto <span>streamers</span> e degli eventi di Metropolis.</div>
+                    </div>
+                  <div class="content__award">
+                    <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #fd0067);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691385371533362/Artboard_5.png" alt=""></div>
+                    <div class="content__award-title">
+                      <p class="staff">MS Studios            (20)</p>
+                    </div>
+                    <div class="content__award-text small"><span>Capo designer</span>, modellatore 3D e <span>gestore staff</span> di Metropolis.</div>
+                  </div>
+                  <div class="content__award">
+                    <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #151515);"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691385837105152/5365046c05913bb7c44c39548199318d.png" alt=""></div>
+                    <div class="content__award-title">
+                      <p class="staff">lowsbarrel                (18)</p>
+                    </div>
+                    <div class="content__award-text small">Back-End developer, <span>amministratore di sistema</span> e di Metropolis.</div>
+                </div>
+                <div class="content__award">
+                  <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #151515);"><img src="https://cdn.discordapp.com/avatars/518565466076217352/f18a465b4fcaa0d52b9e70858aca3c8d.png?size=2048" alt=""></div>
+                  <div class="content__award-title">
+                    <p class="staff">ricgrx                      (18)</p>
+                  </div>
+                  <div class="content__award-text small"><span>Amministratore di Metropolis.</span></div>
+              </div>
+              <div class="content__award">
+                <div class="content__award-img" style="filter: drop-shadow(2px 2px 7px #151515);"><img src="https://cdn.discordapp.com/avatars/542731573922103313/8056092eafb1a596b7a5f7a9c81c6580.png?size=2048" alt=""></div>
+                <div class="content__award-title">
+                  <p class="staff">leone                      (18)</p>
+                </div>
+                <div class="content__award-text small">Apprendista developer, <span>modellatore 3D </span>e amministratore di Metropolis.</div>
+            </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="testimonials">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>negozio</div>
+                    <div>4.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693825974120458/storebg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="color: #02ffdd; filter: drop-shadow(2px 2px 3px #02ffdd); animation: flicker-azzurro 1.5s infinite alternate;">Migliora</div>
+                    <div class="h1">la tua</div>
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">esperienza</div>
+                    <div class="small1"><span>| MLO</span> personalizzati <br> <span>| PEDs</span> unici <br><span>| Veicoli volanti</span><br><span>| Grafiche</span> brandizzate <br> e altro ancora...</div>
+                  </div>
+                </div>
+                <div class="content__right">
+                  <div class="content__subtitle">Dai sfogo alla tua <span>creatività</span></div>
+                  <div class="content__subtitle"> </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="experience">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>attività</div>
+                    <div>5.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693826670370956/actbg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__bg"></div>
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="color: #02ffdd; filter: drop-shadow(2px 2px 3px #02ffdd); animation: flicker-azzurro 1.5s infinite alternate;">attività</div>
+                    <div class="h1">su</div>
+                    <div class="h1" style="color: #D62463; filter: drop-shadow(2px 2px 3px #D62463); animation: flicker-rosso 1.5s infinite alternate;">metropolis</div>
+                  </div>
+                  <div class="content__description">
+                    <div class="small"></div>
+                  </div>
+                  <!-- <div class="content__btn-block"><a class="content__btn-btn btn" href="#">Torna indietro</a></div> -->
+                </div>
+                <div class="content__right">
+                  <div class="content__awards experience__list">
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691479848243330/thp.png" alt=""></div>
+                      <a><div class="content__award-title"><span class="small"></span>
+                        <p class="admin">TH Police</p>
+                      </div></a>
+                      <div class="content__award-text small"></div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691481144274984/cb.png" alt=""></div>
+                      <a><div class="content__award-title"><span class="small"></span>
+                        <p class="admin">cyber benny's</p>
+                      </div></a>
+                      <div class="content__award-text small"></div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691480204738650/tt.png" alt=""></div>
+                      <a><div class="content__award-title"><span class="small"></span>
+                        <p class="admin">trauma team</p>
+                      </div></a>
+                      <div class="content__award-text small"></div>
+                    </div>
+                    <div class="content__award">
+                      <div class="content__award-img"><img src="https://cdn.discordapp.com/attachments/951493460530171924/1006691480615788644/vu.png" alt=""></div>
+                      <a><div class="content__award-title"><span class="small"></span>
+                        <p class="admin">vanilla unipunk</p>
+                      </div></a>
+                      <div class="content__award-text small"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable">
+            <section class="news">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>Regolamento</div>
+                    <div>5.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693827324690522/evbg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1" style="color: #02ffdd; filter: drop-shadow(2px 2px 3px #02ffdd); animation: flicker-azzurro 1.5s infinite alternate;">regolamento</div>
+                  </div>
+                  <ul class="content__menu news__menu">
+                    <li class="active"><a href="https://docs.google.com/document/d/1yQ64uZeZxasnvwypT9Mxt-2LotgEwd4JU8xyKOTza7k/edit?usp=sharing" target="_blank">Regolamento</a></li>
+                    <!-- <li><a href="javascript:;">Lemon Illustration design</a></li>
+                    <li><a href="javascript:;">Paul theme Branding</a></li>
+                    <li><a href="javascript:;">Best typography 2020</a></li>
+                    <li><a href="javascript:;">my name is pattison</a></li> -->
+                  </ul>
+                  <!-- <div class="content__btn-block">
+                    <div class="content__btn-label small">View all works</div><a class="content__btn-btn btn btn--arrow" href="blog.html" target="_blank">
+                      <svg>
+                        <use xlink:href="./svg/sprite.svg#arrow"></use>
+                      </svg></a>
+                  </div> -->
+                </div>
+                <div class="content__right">
+                  <div class="news__blocks">
+                    <iframe class="regolamento" src="https://docs.google.com/document/d/e/2PACX-1vTY3XQAS4kSVwjaU4RZCBFD3BxAAsLlpNQj8EbUF8Yc3H7udWa8_bAVNGD9EMqnXlQb1KIB221dNMrK/pub?embedded=true"></iframe>
+                    <!-- <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(01)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-1.jpg" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(02)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-2.jpg" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(03)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-3.jpg" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(04)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-4.jpg" alt=""></a></div>
+                    </div>
+                    <div class="news__block active">
+                      <div class="news__block-info">
+                        <div class="news__block-date small">3th January, 2020</div>
+                        <div class="news__block-text small">Berling ® —  minimalism photography agency website. with the help of a  minimalistic design, the site turned out to be very  user-friendly  and responsive, and the brand became more.</div>
+                        <div class="news__block-number">(05)</div>
+                      </div>
+                      <div class="news__block-image"><a href="blog.html" target="_blank"><img src="img/news-5.jpg" alt=""></a></div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="scrollable" id="hireme">
+            <section class="contacts">
+              <div class="sticky-title">
+                <ul>
+                  <li>
+                    <div>links</div>
+                    <div>6.0</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="content bg-image" style="background-image: url(https://cdn.discordapp.com/attachments/951493460530171924/1006693825634369616/linksbg.png); background-size: auto 100%; background-repeat: no-repeat; background-position: center center;">
+                <div class="content__left">
+                  <div class="content__title">
+                    <div class="h1">Links</div>
+                  </div>
+                  <ul class="content__menu contacts__menu">
+                    <!-- <li class="active"><a class="noicon" href="javascript:;" onclick="window.open('mailto:robert@info.com')">mail: robert@info.com</a></li>
+                    <li class="active"><a class="noicon" href="javascript:;" onclick="window.open('skype:robert')">skype: robert</a></li> -->
+                    <li class="active"><a href="https://cfx.re/join/x4oa8m" target="_blank">Entra in metropolis</a></li>
+                    <li class="active"><a href="https://discord.metropolisrp.it" target="_blank">Connettiti al server discord</a></li>
+                  </ul>
+                  <div class="contacts__copyright small">© Metropolis Roleplay 2022.  Tutti i diritti riservati</div>
+                </div>
+                <div class="content__right">
+                  <div class="content__subtitle">Connettiti al nostro server<span> DISCORD.</span></div>
+                  <div class="container-discord"></div>
+                  <iframe class="discord" src="https://discord.com/widget?id=635638749220438039&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+      new Crate({
+        server: '635638749220438039', // Metropolis RP ✔
+        channel: '833428164965040140', // #🎫｜ticket
+        glyph: ['https://cdn.discordapp.com/attachments/951493460530171924/1006243510674006166/Artboard_1.png', '100%'],
+        color: '#000'
+      })
+    </script>     
+  </body>
+</html>
