@@ -2192,4 +2192,15 @@ body::-webkit-scrollbar-thumb {
 	width: 100%;
 }
 
+.comandi {
+	font-size: 20px;
+	font-weight: 700;
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.comandi span {
+	font-style: normal;
+}
+
 /*# sourceMappingURL=maps/main.css.map */
