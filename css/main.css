@@ -576,6 +576,43 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 }
 
+.store {
+	margin-left: 50px;
+	color: #e1f010;
+	animation: flicker-store 1.5s infinite alternate; 
+	border: 2px solid #e1f010;
+	transition: all 0.4s ease-in-out;
+	padding: 7px;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	-webkit-transition: background 0.3s;
+	transition: background 0.3s;
+	font-size: 1.1vw;
+	line-height: 130%;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 0.72917vw 3.125vw;
+}
+
+.store a {
+	color: white;
+	width: 500px;
+	transition: all 0.4s ease-in-out;
+}
+
+.store:hover {
+	border: 2px solid #e1f010;
+	color: #242424;
+	backdrop-filter: blur(5px);
+}
+
+.store:hover a {
+		color: #e1f010;
+		animation: flicker-store-hover 1.5s infinite alternate; 
+	}
+
 @keyframes flicker-menu {
     
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
@@ -592,6 +629,55 @@ body::-webkit-scrollbar-thumb {
         inset 0 0 .3rem #e1f01015,
         0 0 4rem #e1f010,
         inset 0 0 .3rem #e1f01015;        
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+@keyframes flicker-store-hover {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        text-shadow:
+            -0.1rem -0.1rem 0.5rem rgba(255, 255, 255, 0.712),
+            0.1rem 0.1rem 0.5rem #e1f010a1,
+            0 0 6px #e1f010a1;   
+			
+    }
+    
+    20%, 24%, 55% {        
+        text-shadow: none;
+        box-shadow: none;
+    }    
+}
+
+@keyframes flicker-store {
+    
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      
+        /* text-shadow:
+            -0.1rem -0.1rem 0.5rem rgba(255, 255, 255, 0.712),
+            0.1rem 0.1rem 0.5rem #e1f010a1,
+            0 0 6px #e1f010a1;    */
+			
+		box-shadow:
+        0 0 .3rem #fff,
+        inset 0 0 .3rem #e1f01015,
+        0 0 .3rem #e1f010,
+        inset 0 0 .3rem #e1f01015,
+        0 0 4rem #e1f010,
+        inset 0 0 .3rem #e1f01015;   
+		
+		background-color: 
+		#fff,
+        #e1f01015,
+        #e1f010,
+        #e1f01015,
+        #e1f010,
+        #e1f01015;  ;
     }
     
     20%, 24%, 55% {        
